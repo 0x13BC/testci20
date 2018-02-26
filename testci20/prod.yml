@@ -1,0 +1,17 @@
+version: '2'
+services:
+   mydbapp:
+      image: lauyao/testci20_web
+      ports:
+        - "8888:8080"
+      depends_on:
+        - db
+
+   db:
+      image: lauyao/testci20_db
+      volumes:
+        - db_data:/var/lib/postgresql/data
+      container_name: db
+
+volumes:
+   db_data:

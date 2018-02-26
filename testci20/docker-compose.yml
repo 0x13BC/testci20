@@ -1,0 +1,19 @@
+version: '2'
+services:
+   mydbapp:
+      build: ./web
+      image: myweb:latest
+      ports:
+        - "8888:8080"
+      depends_on:
+        - db
+
+   db:
+      build: ./db
+      image: mydb:latest
+      volumes:
+        - db_data:/var/lib/postgresql/data
+      container_name: db
+
+volumes:
+   db_data:
