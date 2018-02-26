@@ -41,7 +41,8 @@ jobs:
             docker login -e $DOCKER_HUB_EMAIL -u $DOCKER_HUB_USER_ID -p $DOCKER_HUB_PWD
             docker tag mydb $DOCKER_HUB_USER_ID/testci20_db:$CIRCLE_SHA1
             docker tag mydb $DOCKER_HUB_USER_ID/testci20_db:latest
+            docker tag myweb $DOCKER_HUB_USER_ID/testci20_web:$CIRCLE_SHA1
+            docker tag myweb $DOCKER_HUB_USER_ID/testci20_web:latest
             docker push $DOCKER_HUB_USER_ID/testci20_db:latest
-            docker tag mytomcat $DOCKER_HUB_USER_ID/testci20_mytomcat:$CIRCLE_SHA1
-	    docker tag mytomcat $DOCKER_HUB_USER_ID/testci20_mytomcat:latest
-	    docker push $DOCKER_HUB_USER_ID/testci20_mytomcat:latest
+            docker push $DOCKER_HUB_USER_ID/testci20_web:latest
+
