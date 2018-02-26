@@ -1,24 +1,25 @@
-CREATE SEQUENCE IF NOT EXISTS public.chaussure_idchaussure_seq
+CREATE SEQUENCE IF NOT EXISTS public.user_iduser_seq
 INCREMENT 1
 MINVALUE 1
 MAXVALUE 9223372036854775807
 START 19
 CACHE 1;
 	 
-ALTER TABLE public.chaussure_idchaussure_seq
+ALTER TABLE public.user_iduser_seq
 OWNER TO postgres;
-CREATE TABLE IF NOT EXISTS public.chaussure
+CREATE TABLE IF NOT EXISTS public.user
 (
-  idchaussure integer NOT NULL DEFAULT nextval('chaussure_idchaussure_seq'::regclass),
-  genre character varying(15),
-  marque character varying(20),
-  modele character varying(25),
-  couleur character varying(15),
-  CONSTRAINT chaussure_pkey PRIMARY KEY (idchaussure)
+  iduser integer NOT NULL DEFAULT nextval('user_iduser_seq'::regclass),
+  nom character varying(30),
+  prenom character varying(30),
+  utilisateur character varying(30),
+  motdepassecharacter varying(30),
+  mail character varying(50),
+  CONSTRAINT user_pkey PRIMARY KEY (iduser)
 )
 WITH (
       OIDS=FALSE
 );
-ALTER TABLE public.chaussure
+ALTER TABLE public.user
 OWNER TO postgres;
 
